@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akrikuno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 18:47:13 by akrikuno          #+#    #+#             */
-/*   Updated: 2022/07/02 19:48:53 by akrikuno         ###   ########.fr       */
+/*   Created: 2022/07/02 17:17:48 by akrikuno          #+#    #+#             */
+/*   Updated: 2022/07/04 23:22:09 by akrikuno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <stdio.h>
-*/
-int	ft_iterative_factorial(int nb)
-{
-	int	result;
-	int	i;
+#include <unistd.h>
+/*#include <stdio.h>*/
 
-	i = 1;
-	result = 1;
-	if ((nb < 0) || (nb > 12))
-		return (0);
-	if (nb == 1)
-		return (1);
-	while (i <= nb)
+void	ft_putnbr(int nb)
+{
+	int	a;
+
+	if (nb == -2147483648)
 	{
-		result = i * result;
-		i++;
+		write(1, "-2147483648", 11);
+		return ;
 	}
-	return (result);
+	if (nb < 0)
+	{
+		nb = -nb;
+		write(1, "-", 1);
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+	}
+	a = nb % 10 + '0';
+	write(1, &a, 1);
 }
 
-/*int	main(void)
+/*int main(void)
 {
-	printf("%d\n", ft_iterative_factorial(7));
-}
-*/
+	ft_putnbr(2147483647);
+}*/

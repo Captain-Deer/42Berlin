@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akrikuno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 17:17:48 by akrikuno          #+#    #+#             */
-/*   Updated: 2022/07/02 17:22:43 by akrikuno         ###   ########.fr       */
+/*   Created: 2022/07/05 13:56:58 by akrikuno          #+#    #+#             */
+/*   Updated: 2022/07/05 14:03:29 by akrikuno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-/*#include <stdio.h>
-*/
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
-void	ft_putnbr(int nb)
+int	main(int argc, char *argv[])
 {
-	if (nb < 0)
+	int	i;
+	int	j;
+
+	i = argc - 1;
+	while (i > 0)
 	{
-		nb = -nb;
-		ft_putchar('-');
-	}
-	if (nb < 10)
-		ft_putchar(nb + '0');
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		j = 0;
+		while (argv[i][j])
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i--;
 	}
 }
-
-/*int main(void)
-{
-	ft_putnbr(345);
-}
-*/

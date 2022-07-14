@@ -9,33 +9,52 @@
 /*   Updated: 2022/07/02 18:31:02 by akrikuno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <stdio.h>*/
+#include <stdio.h>
+
+int	is_num(char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	check_neg(int res, int n)
+{
+	if (n % 2 == 0)
+		return (res);
+	else
+		return (res * -1);
+}
 
 int	ft_atoi(char *str)
 {
-	int	sign;
-	int	num;
+	int	i;
+	int	res;
+	int	n;
 
-	sign = 1;
-	num = 0;
-	while ((*str == ' ') || (*str == '\t') || (*str == '\n')
-		|| (*str == '\v') || (*str == '\f') || (*str == '\r'))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	while ((*str == '-') || (*str == '+'))
-		str++;
-	while (*str >= '0' && *str <= '9')
+	n = 0;
+	res = 0;
+	i = 0;
+	while (str[i])
 	{
-		num = (num * 10) + ((int)*str - '0');
-		str++;
+		if (str[i] == '-')
+		{
+			if (str[i + 1] == ' ')
+				break ;
+			else
+				n++;
+		}
+		else if (is_num(str[i]))
+		{
+			res = res * 10 + str[i] - '0';
+			if (!is_num(str[i + 1]))
+				break ;
+		}
+		i++;
 	}
-	return (num * sign);
+	return (check_neg(res, n));
 }
 
 /*int	main(int argc, char **argv)
 {
 	if (argc)
 		printf("%d\n", ft_atoi(argv[1]));
-}
-*/
+}*/
