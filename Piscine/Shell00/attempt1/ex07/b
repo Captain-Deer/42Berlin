@@ -1,1 +1,0 @@
-patch a -i sw.diff -o b
