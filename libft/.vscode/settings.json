@@ -1,0 +1,9 @@
+{
+    "editor.renderWhitespace": "all",
+	"42header.email": "akrikuno@student.42berlin.de",
+	"42header.username": "akrikuno",
+	"files.associations": {
+		"libft.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
+}
