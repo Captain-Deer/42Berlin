@@ -6,7 +6,7 @@
 /*   By: akrikuno <akrikuno@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 19:00:49 by akrikuno          #+#    #+#             */
-/*   Updated: 2023/01/11 17:13:20 by akrikuno         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:52:48 by akrikuno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	int fd;
 	char *tab;
@@ -68,4 +68,4 @@ char	*get_next_line(int fd)
 	printf("%s", tab);
 	close(fd);
 	return (0);
-}*/
+}
